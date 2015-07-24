@@ -71,10 +71,11 @@
 				: 'Hover over a state');
 		};
 		info.addTo(map);
-		// get color depending on population density value
-		function getColor(d) {
+		// set color 
+		function setColor() {
 			return '#FC4E2A' 
 		}
+		
 		function style(feature) {
 			return {
 				weight: 2,
@@ -82,7 +83,7 @@
 				color: 'white',
 				dashArray: '3',
 				fillOpacity: 0.7,
-				fillColor: getColor(feature.properties.density)
+				fillColor: setColor(feature.properties)
 			};
 		}
 		function highlightFeature(e) {
