@@ -72,20 +72,17 @@
 		};
 		info.addTo(map);
 		// set color 
-		function setColor() {
-			return '#FC4E2A' 
-		}
-		
-		function style(feature) {
+		function setColor(feature) {
 			return {
 				weight: 2,
 				opacity: 1,
 				color: 'white',
 				dashArray: '3',
+				fillColor: '#FC4E2A',
 				fillOpacity: 0.7,
-				fillColor: setColor(feature.properties)
-			};
+			}
 		}
+		/* 
 		function highlightFeature(e) {
 			var layer = e.target;
 			layer.setStyle({
@@ -103,19 +100,16 @@
 		function resetHighlight(e) {
 			geojson.resetStyle(e.target);
 			info.update();
-		}
-		function zoomToFeature(e) {
-			map.fitBounds(e.target.getBounds());
-		}
+		} */
 		function onEachFeature(feature, layer) {
 			layer.on({
-				mouseover: highlightFeature,
-				mouseout: resetHighlight,
-				click: zoomToFeature
+				// mouseover: highlightFeature,
+				//mouseout: resetHighlight,
+				click: setColor
 			});
 		}
 		geojson = L.geoJson(statesData, {
-			style: style,
+			//style: style,
 			onEachFeature: onEachFeature
 		}).addTo(map);
 		map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
