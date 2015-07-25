@@ -69,17 +69,17 @@
 	/* add polygons with click on alerts
 	var geojson = L.geoJson(statesData, {
     			onEachFeature: function(feature, featureLayer) {
-        		featureLayer.on('click', function() { console.log('Clicked on the map!'); });
+        		featureLayer.on('click', function() { console.log('Clicked on ' + feature.properties.name); });
 			 }
-		}).addTo(map);
+	}).addTo(map);
 	*/
 	var geojson = L.geoJson(statesData, {
     			onEachFeature: function(feature, featureLayer) {
-        		featureLayer.on('click', function() { console.log('Clicked on' + feature.properties.name); });
+        		featureLayer.on('click', function() { console.log('Clicked on ' + feature.properties.name); });
 			 }
 		}).addTo(map);
 		
-	// statesData.on('click', function() { console.log('Clicked on' + feature.properties.Name); });
+	map.on('click', function() { console.log('Clicked on state: ' + feature.properties.name); });
 		
 
 	</script>
