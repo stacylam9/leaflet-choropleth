@@ -73,13 +73,40 @@
 			 }
 	}).addTo(map);
 	*/
-	var geojson = L.geoJson(statesData)
-	.on('click', function(feature, featureLayer) { 
-        	console.log('Clicked on state: ' + feature.properties.name); 
-	})
-	.addTo(map);
+
+function style(feature) {
+    return {
+        fillColor: 'red',
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+    };
+}	
+
+function colorFeature(e) {
+    var layer = e.target;
+    layer.setStyle({
+        fillColor: 'blue',
+        fillOpacity: 0.7
+});
+
+function onEachFeature(feature, layer) {
+    layer.on({
+        click: colorFeature
+    });
+}
+
+geojson = L.geoJson(statesData, {
+    style: style,
+    onEachFeature: onEachFeature
+}).addTo(map);
+	
+	
+var geojson = L.geoJson(statesData).addTo(map);
 		
-	// map.on('click', function() { console.log('Clicked on state: ' + feature.properties.name); });
+
 		
 
 	</script>
