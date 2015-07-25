@@ -57,18 +57,20 @@
 		new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 	}).addTo(map);
-		
-
-		
-
-		
-		var geojson = L.geoJson(statesData, {
+	
+	/* add polygons with popups
+	var geojson = L.geoJson(statesData, {
     			onEachFeature: function(feature, featureLayer) {
         		featureLayer.bindPopup(feature.properties.name)
+			}
+	}).addTo(map);
+	*/
+	
+	var geojson = L.geoJson(statesData, {
+    			onEachFeature: function(feature, featureLayer) {
+        		featureLayer.on('click', function() { console.log('Clicked on the map!'); });
 			 }
 		}).addTo(map);
-		
-		map.on('click', function() { console.log('Clicked on the map!'); });
 		
 		// statesData.on('click', function(e) { console.log(e.layer) };
 		
