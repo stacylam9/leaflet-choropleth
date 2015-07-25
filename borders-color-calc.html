@@ -64,10 +64,11 @@
 		
 		var geojson = L.geoJson(statesData, {
     			onEachFeature: function(feature, featureLayer) {
-        		featureLayer.bindPopup(feature.properties.name);
-			 })
-		}
-		statesData.on('click', function(e) { console.log(e.layer) };
+        		featureLayer.bindPopup(feature.properties.name)
+			 }
+		}).addTo(map);
+		
+		// statesData.on('click', function(e) { console.log(e.layer) };
 		
 
 	</script>
