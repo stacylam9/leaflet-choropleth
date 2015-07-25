@@ -121,18 +121,7 @@ function style(feature) {
 }
 
 function highlightFeature(e) {
-    var layer = e.target;
-
-    layer.setStyle({
-        weight: 5,
-        color: '#666',
-        dashArray: '',
-        fillOpacity: 0.7
-    });
-}
-
-function resetHighlight(e) {
-    geojson.resetStyle(e.target);
+    var layerHighlight = e.target;
 }
 
 function colorFeature(e) {
@@ -147,7 +136,6 @@ function colorFeature(e) {
 function onEachFeature(feature, layer) {
     layer.on({
     	mouseover: highlightFeature,
-        mouseout: resetHighlight,
         click: colorFeature
     });
 }
