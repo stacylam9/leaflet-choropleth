@@ -7,8 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- Load Leaflet from CDN-->
-  		<link rel="stylesheet" href="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.css" />
-  	
+  		<link rel="stylesheet" href="http://cdn.jsdelivr.net/leaflet/0.7.3/leaflet.css" />
+
 
 	<style>
 		#map {
@@ -45,7 +45,7 @@
 	<div id="map"></div>
 
 	<!-- Load Leaflet -->
-		<script src="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
+		<script src="http://cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
 
 
 	<script type="text/javascript" src="us-states.js"></script>
@@ -53,11 +53,11 @@
 		var map = L.map('map').setView([37.8, -96], 4);
 		// customize source link to your GitHub repo
 		map.attributionControl
-		.setPrefix('View <a href="//github.com/jackdougherty/leaflet-choropleth">open-source code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+		.setPrefix('View <a href="http://github.com/jackdougherty/leaflet-choropleth">open-source code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
 		new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 	}).addTo(map);
-	
+
 	/* add polygons with popups
 	var geojson = L.geoJson(statesData, {
     			onEachFeature: function(feature, featureLayer) {
@@ -65,7 +65,7 @@
 			}
 	}).addTo(map);
 	*/
-	
+
 	/* add polygons with click on alerts
 	var geojson = L.geoJson(statesData, {
     			onEachFeature: function(feature, featureLayer) {
@@ -74,7 +74,7 @@
 	}).addTo(map);
 	*/
 
-/* working click to set new polygon color 
+/* working click to set new polygon color
 function style(feature) {
     return {
         fillColor: 'red',
@@ -84,11 +84,11 @@ function style(feature) {
         dashArray: '3',
         fillOpacity: 0.7
     };
-}	
+}
 
 function colorFeature(e) {
     var layer = e.target;
-    
+
     layer.setStyle({
         fillColor: 'blue',
         fillOpacity: 0.7
@@ -127,7 +127,7 @@ function highlightFeature(e) {
 
 function colorFeature(e) {
     var layer = e.target;
-    
+
     layer.setStyle({
         fillColor: 'blue',
         fillOpacity: 0.7
