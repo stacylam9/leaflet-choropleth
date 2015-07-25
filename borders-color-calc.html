@@ -73,9 +73,13 @@
 			 }
 	}).addTo(map);
 	*/
-	var geojson = L.geoJson(statesData).addTo(map);
+	var geojson = L.geoJson(statesData)
+	.on('click', function() { 
+        	console.log('Clicked on state: ' + feature.properties.name); 
+	})
+	.addTo(map);
 		
-	map.on('click', function() { console.log('Clicked on state: ' + feature.properties.name); });
+	// map.on('click', function() { console.log('Clicked on state: ' + feature.properties.name); });
 		
 
 	</script>
