@@ -87,10 +87,12 @@ function style(feature) {
 
 function colorFeature(e) {
     var layer = e.target;
+    
     layer.setStyle({
         fillColor: 'blue',
         fillOpacity: 0.7
-});
+     });
+}
 
 function onEachFeature(feature, layer) {
     layer.on({
