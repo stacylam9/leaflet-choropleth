@@ -74,7 +74,7 @@
 	}).addTo(map);
 	*/
 	var geojson = L.geoJson(statesData)
-	.on('click', function() { 
+	.on('click', function(feature, featureLayer) { 
         	console.log('Clicked on state: ' + feature.properties.name); 
 	})
 	.addTo(map);
