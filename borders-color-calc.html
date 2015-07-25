@@ -75,11 +75,11 @@
 	*/
 	var geojson = L.geoJson(statesData, {
     			onEachFeature: function(feature, featureLayer) {
-        		featureLayer.on('click', function() { console.log('Clicked on the map!'); });
+        		featureLayer.on('click', function() { console.log('Clicked on' + feature.properties.Name); });
 			 }
 		}).addTo(map);
 		
-	statesData.on('click', function() { console.log('Clicked on' + feature.properties.Name); });
+	// statesData.on('click', function() { console.log('Clicked on' + feature.properties.Name); });
 		
 
 	</script>
