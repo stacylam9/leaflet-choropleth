@@ -66,13 +66,20 @@
 	}).addTo(map);
 	*/
 	
+	/* add polygons with click on alerts
+	var geojson = L.geoJson(statesData, {
+    			onEachFeature: function(feature, featureLayer) {
+        		featureLayer.on('click', function() { console.log('Clicked on the map!'); });
+			 }
+		}).addTo(map);
+	*/
 	var geojson = L.geoJson(statesData, {
     			onEachFeature: function(feature, featureLayer) {
         		featureLayer.on('click', function() { console.log('Clicked on the map!'); });
 			 }
 		}).addTo(map);
 		
-		// statesData.on('click', function(e) { console.log(e.layer) };
+	statesData.on('click', function() { console.log('Clicked on' + feature.properties.Name); });
 		
 
 	</script>
