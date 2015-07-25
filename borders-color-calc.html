@@ -74,6 +74,7 @@
 	}).addTo(map);
 	*/
 
+/* working click to set new polygon color 
 function style(feature) {
     return {
         fillColor: 'red',
@@ -104,6 +105,59 @@ geojson = L.geoJson(statesData, {
     style: style,
     onEachFeature: onEachFeature
 }).addTo(map);
+*/
+
+var geojson;
+
+function style(feature) {
+    return {
+        fillColor: 'red',
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+    };
+}
+
+function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+    });
+}
+
+function resetHighlight(e) {
+    geojson.resetStyle(e.target);
+}
+
+function colorFeature(e) {
+    var layer = e.target;
+    
+    layer.setStyle({
+        fillColor: 'blue',
+        fillOpacity: 0.7
+     });
+}
+
+function onEachFeature(feature, layer) {
+    layer.on({
+    	mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: colorFeature
+    });
+}
+
+geojson = L.geoJson(statesData, {
+    style: style,
+    onEachFeature: onEachFeature
+}).addTo(map);
+
+
 
 	</script>
 </body>
