@@ -48,9 +48,9 @@
 		<script src="http://cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
 
 
-	<script type="text/javascript" src="ct-towns-popchg.js"></script>
+	<script type="text/javascript" src="us-states.js"></script>
 	<script type="text/javascript">
-		var map = L.map('map').setView([41.5, -72.67], 9);
+		var map = L.map('map').setView([37.8, -96], 4);
 		// customize source link to your GitHub repo
 		map.attributionControl
 		.setPrefix('View <a href="http://github.com/jackdougherty/leaflet-choropleth">open-source code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
@@ -141,7 +141,7 @@ function onEachFeature(feature, layer) {
     });
 }
 
-geojson = L.geoJson(dataCtTowns, {
+geojson = L.geoJson(statesData, {
     style: style,
     onEachFeature: onEachFeature
 }).addTo(map);
@@ -156,8 +156,8 @@ info.onAdd = function (map) {
 
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
-    this._div.innerHTML = '<h4>CT Population 2010</h4>' +  (props ?
-        '<b>' + props.Town + '</b><br />' + props.Pop2010
+    this._div.innerHTML = '<h4>US Population Density</h4>' +  (props ?
+        '<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
         : 'Hover over a state');
 };
 
