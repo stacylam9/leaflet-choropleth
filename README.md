@@ -6,4 +6,4 @@ Demos in this repo:
 - with ctborders.js (from CT Mirror) in local directory http://jackdougherty.github.io/leaflet-choropleth/ctborders.html
 
 Goal: create metro-map builder where mouseclick on town triggers color fill and adds its census data to new total of hypothetical metro area
-- http://jackdougherty.github.io/leaflet-choropleth/borders-color-calc.html
+- http://stacylam9.github.io/leaflet-choropleth/borders-color-calc.html
